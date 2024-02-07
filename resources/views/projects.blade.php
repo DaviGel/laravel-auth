@@ -5,6 +5,21 @@
         <div class="row justify-content-center">
             <div class="col-md-8 mt-4">
                 <a class="btn btn-sm btn-primary" href="{{ route('admin.projects.create') }}">Crea nuovo progetto</a>
+                @if (session('message'))
+                    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                        <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <strong class="me-auto">Notifica</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                {{ session('message') }}
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                <hr>
                 <div class="card mt-3">
                     <div class="card-header">{{ __('Dashboard') }}</div>
                     <div class="card-body">
