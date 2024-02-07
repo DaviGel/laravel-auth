@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -28,9 +29,9 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UpdateProjectRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $project = new Project();
         $project->fill($data);
         $project->save();
@@ -41,7 +42,6 @@ class ProjectController extends Controller
      * Display the specified resource.
      */
     public function show(Project $project)
-    // public function show(Project $project)
     {
         return view('show', compact('project'));
     }
@@ -52,17 +52,15 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        // $project = Project::findOrFail($id);
         return view('edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        $data = $request->all();
-        // $project = Project::findOrFail($id);
+        $data = $request->validated();
         $project->update($data);
         return redirect()->route('admin.projects.index', $project)->with('message', 'Progetto aggiornato correttamente');
     }
@@ -72,7 +70,6 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        // $project = Project::findOrFail($id);
         $project->delete();
         return redirect()->route('admin.projects.index')->with('message', 'Progetto cancellato correttamente');
     }
