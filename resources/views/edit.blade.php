@@ -8,7 +8,7 @@
                 <div class="card mt-3">
                     <div class="card-header">{{ __('Modifica progetto') }}</div>
                     <div class="card-body">
-                        <form class="mt-3" action="{{ route('dashboard.update', $project->id) }}" method="POST">
+                        <form class="mt-3" action="{{ route('projects.update', $project->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">

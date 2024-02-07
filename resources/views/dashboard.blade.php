@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 mt-4">
-                <a class="btn btn-sm btn-primary" href="{{ route('dashboard.create') }}">Crea nuovo progetto</a>
+                <a class="btn btn-sm btn-primary" href="{{ route('projects.create') }}">Crea nuovo progetto</a>
                 <div class="card mt-3">
                     <div class="card-header">{{ __('Dashboard') }}</div>
                     <div class="card-body">
@@ -18,10 +18,10 @@
                             <p>{{ $project->description }}</p>
                             <div class="buttons d-flex">
                                 <a class="text-decoration-none btn btn-sm btn-info mb-4 text-white"
-                                    href="{{ route('dashboard.show', $project->id) }}" alt="Project">Dettaglio</a>
+                                    href="{{ route('projects.show', $project->id) }}" alt="Project">Dettaglio</a>
                                 <a class="text-decoration-none mx-1 btn btn-sm btn-warning mb-4 text-white"
-                                    href="{{ route('dashboard.edit', $project->id) }}" alt="Edit">Modifica</a>
-                                <form action="{{ route('dashboard.destroy', $project->id) }}" method="POST">
+                                    href="{{ route('projects.edit', $project->id) }}" alt="Edit">Modifica</a>
+                                <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"

@@ -8,7 +8,7 @@
                 <div class="card mt-3">
                     <div class="card-header">{{ __('Crea nuovo progetto') }}</div>
                     <div class="card-body">
-                        <form class="mt-3" action="{{ route('dashboard.store') }}" method="POST">
+                        <form class="mt-3" action="{{ route('projects.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">Titolo</label>
