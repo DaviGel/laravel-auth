@@ -14,7 +14,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        return view('dashboard', compact('projects'));
+        return view('projects', compact('projects'));
     }
 
     /**
@@ -40,9 +40,9 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Project $project)
+    // public function show(Project $project)
     {
-        $project = Project::findOrFail($id);
         return view('show', compact('project'));
     }
 
@@ -50,30 +50,30 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        $project = Project::findOrFail($id);
+        // $project = Project::findOrFail($id);
         return view('edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
         $data = $request->all();
-        $project = Project::findOrFail($id);
+        // $project = Project::findOrFail($id);
         $project->update($data);
-        return redirect()->route('dashboard', $project->id);
+        return redirect()->route('admin.projects.index', $project);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        $project = Project::findOrFail($id);
+        // $project = Project::findOrFail($id);
         $project->delete();
-        return redirect()->route('dashboard');
+        return redirect()->route('admin.projects.index');
     }
 }

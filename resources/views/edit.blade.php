@@ -4,11 +4,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 mt-4">
-                <a class="btn btn-sm btn-primary" href="{{ route('dashboard') }}">Torna alla lista dei progetti</a>
+                <a class="btn btn-sm btn-primary" href="{{ route('admin.projects.index') }}">Torna alla lista dei progetti</a>
                 <div class="card mt-3">
                     <div class="card-header">{{ __('Modifica progetto') }}</div>
                     <div class="card-body">
-                        <form class="mt-3" action="{{ route('projects.update', $project->id) }}" method="POST">
+                        <form class="mt-3" action="{{ route('admin.projects.update', $project) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
