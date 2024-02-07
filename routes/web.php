@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('/dashboard', ProjectController::class)->names(['index' => 'dashboard',]);
+    Route::resource('dashboard', ProjectController::class)->names(['index' => 'dashboard',]);
 });
 
 
