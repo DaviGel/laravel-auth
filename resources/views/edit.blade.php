@@ -27,14 +27,6 @@
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Slug</label>
-                                <input type="text" class="form-control @error('slug') is-invalid @enderror"
-                                    name="slug" value="{{ old('slug', $project->slug) }}">
-                                @error('slug')
-                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                @enderror
-                            </div>
                             <button type="submit" class="btn btn-success">Salva</button>
                         </form>
                     </div>
